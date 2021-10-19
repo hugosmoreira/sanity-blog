@@ -11,14 +11,17 @@ export default function Home({blogs}) {
     <PageLayout>
     <AuthorIntro />
     <hr/>
-    {JSON.stringify(blogs)}
+    
     <Row className="mb-5">
       
       { blogs.map(blog =>
         <Col key={blog.slug} md="4">
           <CardItem
+            author={blog.author}
             title={blog.title}
             subtitle={blog.subtitle}
+            date={blog.date}
+            image={blog.coverImage}
           />
         </Col>
         )
@@ -41,3 +44,4 @@ export async function getStaticProps() {
   }
 
 }
+
